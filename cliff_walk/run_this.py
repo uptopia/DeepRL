@@ -1,3 +1,4 @@
+
 """
 Sarsa is a online updating method for Reinforcement learning.
 
@@ -9,7 +10,9 @@ while q learning is more brave because it only cares about maximum behaviour.
 
 # from maze_env import Maze
 from the_cliff_maze_env_up import Maze
-from RL_brain import SarsaTable
+# from RL_brain import QLearningTable
+# from RL_brain import SarsaTable
+from RL_brain import SarsaLambdaTable
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -76,7 +79,8 @@ def update():
 
 if __name__ == "__main__":
     env = Maze()
-    RL = SarsaTable(actions=list(range(env.n_actions)))
+    # RL = SarsaTable(actions=list(range(env.n_actions)))
+    RL = SarsaLambdaTable(actions=list(range(env.n_actions)))
 
     env.after(100, update)
     env.mainloop()
